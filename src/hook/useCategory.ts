@@ -1,16 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
-import APIClient from "../services/api-client";
+import newRequest from "../services/auth-request"; // Update the path to the newRequest module
 
-interface Category {
-  id: number;
-  name: string;
-}
-
-const apiClient = new APIClient<Category>("/categories-list");
 const useCategories = () =>
   useQuery({
     queryKey: ["categories"],
-    queryFn: apiClient.getAll,
+    queryFn: async () => {
+      try {
+        // Make the API request using the newRequest axios instance
+        const response = await newRequest.get("/hackathon/categories-list");
+
+        // Assuming your API returns data in response.data
+        console.log(response);
+        return response.data;
+      } catch (error) {
+        throw error; // Rethrow the error to be handled by react-query
+      }
+    },
   });
 
 export default useCategories;
