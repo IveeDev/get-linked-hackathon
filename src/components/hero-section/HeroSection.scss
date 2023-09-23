@@ -1,0 +1,287 @@
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-phone: 48em;
+$bp-smallest: 31.25em; // 500px
+
+.hero {
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  color: var(--color-white);
+  border-bottom: var(--border-bottom);
+
+  .container {
+    width: 120rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+
+    // For Tabs
+    @media only screen and (max-width: $bp-medium) {
+      width: 100rem;
+      flex-direction: column;
+    }
+
+    // For Mobile
+    @media only screen and (max-width: $bp-phone) {
+      flex-direction: column;
+      width: 65rem;
+    }
+
+    &__btn {
+      transform: translateY(-4rem);
+
+      @media only screen and (max-width: $bp-medium) {
+        text-align: center;
+      }
+    }
+
+    &__left {
+      margin-bottom: 5rem;
+      flex-basis: 40%;
+
+      @media only screen and (max-width: $bp-phone) {
+        margin-top: 5rem;
+      }
+
+      .white-star {
+        position: relative;
+        bottom: 9rem;
+        left: 4rem;
+
+        @media only screen and (max-width: $bp-medium) {
+          top: -2rem;
+        }
+
+        @media only screen and (max-width: $bp-phone) {
+          top: -1rem;
+          left: 18rem;
+          width: 2rem;
+        }
+      }
+      .purple-lens {
+        img {
+          position: absolute;
+          bottom: 15rem;
+          width: 50%;
+        }
+      }
+
+      .text-box {
+        @media only screen and (max-width: $bp-medium) {
+          text-align: center;
+        }
+
+        h1 {
+          line-height: 1.3;
+          position: relative;
+          font-size: 5rem;
+          font-family: var(--font);
+
+          .version {
+            color: var(--purple-light);
+          }
+
+          .bulb {
+            position: absolute;
+            top: -6rem;
+            left: 30rem;
+
+            @media only screen and (max-width: $bp-medium) {
+              width: 5%;
+              top: -4rem;
+              left: 33rem;
+            }
+
+            @media only screen and (max-width: $bp-phone) {
+              width: 2rem;
+              top: -1rem;
+              left: 44rem;
+            }
+          }
+        }
+
+        .chain {
+          position: relative;
+          bottom: 8rem;
+          left: 37rem;
+
+          @media only screen and (max-width: $bp-medium) {
+            left: 43rem;
+            bottom: 5rem;
+          }
+
+          @media only screen and (max-width: $bp-phone) {
+            left: 22rem;
+            bottom: 5rem;
+          }
+
+          @media only screen and (max-width: $bp-small) {
+            left: 22rem;
+            bottom: 4rem;
+          }
+
+          img {
+            @media only screen and (max-width: $bp-medium) {
+              width: 5%;
+            }
+
+            @media only screen and (max-width: $bp-small) {
+              width: 5%;
+            }
+          }
+        }
+
+        .spark {
+          position: relative;
+          bottom: 10rem;
+          left: 37rem;
+
+          @media only screen and (max-width: $bp-medium) {
+            left: 43rem;
+            bottom: 5rem;
+          }
+
+          @media only screen and (max-width: $bp-phone) {
+            left: 23rem;
+            bottom: 5rem;
+          }
+
+          @media only screen and (max-width: $bp-small) {
+            left: 22rem;
+            bottom: 4rem;
+          }
+
+          img {
+            @media only screen and (max-width: $bp-medium) {
+              width: 5%;
+            }
+
+            @media only screen and (max-width: $bp-small) {
+              width: 5%;
+            }
+          }
+        }
+
+        .text-primary {
+          transform: translateY(-7rem);
+          font-size: 1.7rem;
+
+          @media only screen and (max-width: $bp-medium) {
+            margin-top: 7rem;
+          }
+          @media only screen and (max-width: $bp-phone) {
+            margin-top: 5rem;
+          }
+        }
+      }
+
+      // GREY-STAR
+      .grey-star {
+        position: absolute;
+        bottom: 1rem;
+        left: 45rem;
+
+        @media only screen and (max-width: $bp-phone) {
+          width: 1rem;
+          bottom: -1rem;
+          left: 46rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+          position: fixed;
+          bottom: -1rem;
+          left: 46rem;
+        }
+      }
+
+      .countdown {
+        margin-top: 3rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        @media only screen and (max-width: $bp-medium) {
+          justify-content: center;
+        }
+
+        p {
+          font-family: "Quantico", sans-serif;
+          font-size: 5rem;
+
+          span {
+            // display: inline-block;
+            transform: translateY(-20rem);
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    // Right column
+    &__right {
+      flex-basis: 60%;
+
+      @media only screen and (max-width: $bp-smallest) {
+        padding: 0 5rem;
+      }
+
+      .text-box__right {
+        @media only screen and (max-width: $bp-phone) {
+          position: absolute;
+          margin: 0 auto;
+          width: fit-content;
+          top: 15rem;
+          left: 10rem;
+        }
+
+        h2 {
+          font-size: 2.6rem;
+          font-weight: 700;
+          font-family: var(--font);
+
+          @media only screen and (max-width: $bp-medium) {
+            text-align: center;
+          }
+        }
+
+        .vector-1 {
+          position: relative;
+          bottom: 1rem;
+          width: 18rem;
+          transform: translateX(33rem);
+
+          @media only screen and (max-width: $bp-medium) {
+            transform: translateX(56rem);
+          }
+
+          @media only screen and (max-width: $bp-phone) {
+            transform: translateX(32rem);
+          }
+
+          @media only screen and (max-width: $bp-small) {
+            display: none;
+          }
+        }
+      }
+
+      .guy {
+        width: 100%;
+
+        @media only screen and (max-width: $bp-phone) {
+          display: none;
+        }
+      }
+
+      .guy--mobile {
+        display: none;
+        @media only screen and (max-width: $bp-phone) {
+          display: block;
+        }
+      }
+    }
+  }
+}

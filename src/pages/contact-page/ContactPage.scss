@@ -1,0 +1,194 @@
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-phone: 48em;
+$bp-smallest: 31.25em; // 500px
+
+.contact {
+  background-color: #1c152e;
+  display: flex;
+  //   height: 70rem;
+  padding-bottom: 5rem;
+  justify-content: center;
+  overflow: hidden;
+
+  .contact__social {
+    position: relative;
+    z-index: 100;
+    margin-top: 2rem;
+
+    @media only screen and (max-width: $bp-phone) {
+      text-align: center;
+    }
+    p {
+      color: var(--purple-light);
+      font-size: 1.6rem;
+    }
+
+    &-icons {
+      display: flex;
+      gap: 1.3rem;
+      margin-top: 1rem;
+
+      @media only screen and (max-width: $bp-phone) {
+        justify-content: center;
+      }
+    }
+  }
+
+  .container {
+    width: 100rem;
+    justify-content: space-between;
+    margin-top: 10rem;
+    display: flex;
+    gap: 15rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      width: 80rem;
+      gap: 5rem;
+    }
+
+    @media only screen and (max-width: $bp-phone) {
+      width: 60rem;
+      gap: 5rem;
+      flex-direction: column-reverse;
+    }
+
+    &__left {
+      position: relative;
+
+      .contact__textbox {
+        position: relative;
+        z-index: 100;
+
+        h1 {
+          color: var(--purple-light);
+        }
+      }
+
+      .flare-top {
+        position: absolute;
+        width: 60rem;
+        top: -10rem;
+        left: -25rem;
+        // left: -20rem;
+      }
+    }
+
+    &__right {
+      .contact__form-container {
+        position: relative;
+        // z-index: 100;
+        box-shadow: 0px 4px 4px 0px #00000040;
+        margin: 0 auto;
+        padding: 4rem 4rem;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(2rem);
+        border-radius: 10px;
+        box-shadow: 0px 4px 4px 0px #00000040;
+        border-radius: 5px;
+        text-align: left;
+
+        @media only screen and (max-width: $bp-phone) {
+          width: fit-content;
+        }
+
+        h1 {
+          font-size: 2rem;
+          font-weight: 600;
+          font-family: "Clash Display", sans-serif;
+          color: var(--purple-light);
+        }
+
+        // Flare
+        .flare-bottom {
+          position: absolute;
+          top: 0;
+          width: 60rem;
+          left: 15rem;
+
+          @media only screen and (max-width: $bp-small) {
+            display: none;
+          }
+        }
+
+        .contact__form {
+          position: relative;
+          z-index: 100;
+          display: flex;
+          margin-top: 2rem;
+          flex-direction: column;
+
+          @media only screen and (max-width: $bp-small) {
+            width: 100%;
+          }
+
+          .form__group {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+
+            input,
+            textarea {
+              color: var(--color-white);
+              border: none;
+              outline: none;
+              width: 40rem;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 5px;
+              font-size: 1.6rem;
+              background-color: #1c152e;
+
+              @media only screen and (max-width: $bp-small) {
+                width: 100%;
+              }
+            }
+
+            textarea {
+              height: 11rem;
+              width: 40rem;
+            }
+
+            label {
+              font-size: 1.5rem;
+              font-weight: 400;
+              margin-bottom: 5px;
+              color: var(--color-white);
+            }
+
+            input::placeholder {
+              color: var(--color-white);
+              font-weight: 400;
+              font-size: 1.4rem;
+              color: #ccc;
+              font-family: "Montserrat", sans-serif;
+            }
+          }
+
+          .form__btn {
+            margin: 1.5rem auto;
+            width: 15rem;
+            border: none;
+            outline: none;
+            color: var(--color-white);
+            background: linear-gradient(
+              270deg,
+              #903aff 0%,
+              #d434fe 56.42%,
+              #ff26b9 99.99%,
+              #fe34b9 100%
+            );
+
+            padding: 1.5rem 2rem;
+            border-radius: 0.4rem;
+            font-size: 1.6rem;
+            font-family: "Montserrat", sans-serif;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.timeline-section {
+  padding: 5rem 0;
+  border-bottom: var(--border-bottom);
+
+  .container {
+    // width: 128rem;
+
+    .textbox {
+      width: fit-content;
+      text-align: center;
+      margin: 0 auto;
+      color: var(--color-white);
+
+      h1 {
+        font-family: "Clash Display", sans-serif;
+        font-size: 3.2rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+      }
+    }
+
+    .timeline-component {
+      margin-top: 10rem;
+    }
+  }
+}

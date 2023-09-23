@@ -1,0 +1,21 @@
+.partnership {
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-bottom: var(--border-bottom);
+  background-color: #150e28;
+
+  .container {
+    width: 128rem;
+    padding: 8rem;
+
+    &__photo {
+      margin-top: 4rem;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
