@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/getlinked.svg";
-
 import "./NavBar.scss";
 import Button from "../button/Button";
 import { useEffect, useState } from "react";
