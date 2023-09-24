@@ -1,6 +1,6 @@
-import { FormEvent, useEffect, useState } from "react";
+import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
-import { Schema, number, set, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import registerIcon from "../../assets/images/designer.png";
 import walking from "../../assets/images/persons.svg";
@@ -8,7 +8,9 @@ import flareTop from "../../assets/images/flare-top.svg";
 import flareBottom from "../../assets/images/flare-bottom.svg";
 import "./RegisterPage.scss";
 import useCategories from "../../hook/useCategory";
+import { useNavigate } from "react-router-dom";
 import newRequest from "../../services/auth-request";
+import MessageDisplay from "../../components/message-diplay/MessageDisplay";
 
 interface Category {
   id: number;
@@ -16,6 +18,7 @@ interface Category {
 }
 
 const RegisterPage = () => {
+  const navigate = useNavigate();
   // Category data
   const { data, error } = useCategories();
 
@@ -49,22 +52,30 @@ const RegisterPage = () => {
   const [message, setMessage] = useState<string | null>(null);
 
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
-
     const categoryId = parseInt(data.category);
-    const groupSize = parseInt(data.group__size);
+    const groupSize = parseInt(data.group_size);
 
-    try {
-      const requestData = {
-        ...data, // Include all other form fields
-        category: categoryId,
-        group_size: groupSize,
-      };
-      const res = await newRequest.post("/hackathon/registration", requestData);
+    if (isValid) {
+      setLoading(true);
+      setMessage("");
+      try {
+        const requestData = {
+          ...data, // Include all other form fields
+          category: categoryId,
+          group_size: groupSize,
+        };
+        await newRequest.post("/hackathon/registration", requestData);
+        setMessage("registration successful!");
 
-      console.log(res);
-    } catch (err) {
-      console.error("Error:", error);
+        reset();
+        navigate("/");
+      } catch (err) {
+        setMessage("Error occurred while registering");
+        console.error("Error:", error);
+      } finally {
+        reset();
+        setLoading(false);
+      }
     }
   };
 
@@ -87,6 +98,7 @@ const RegisterPage = () => {
             <h2 className="heading-secondary">Create Your Account</h2>
 
             <form className="form" onSubmit={handleSubmit(onSubmit)}>
+              {message && <MessageDisplay message={message} />}
               <div className="form__row">
                 <div className="form__group">
                   <label htmlFor="teamName">Team Name:</label>
@@ -143,10 +155,7 @@ const RegisterPage = () => {
               </div>
 
               {/* Select Input */}
-
               <div className="form__row">
-                {/* <CategorySelect /> */}
-
                 <div className="form__group">
                   <label htmlFor="groupSize">Select your category</label>
                   <select id="category" {...register("category")}>
@@ -196,8 +205,8 @@ const RegisterPage = () => {
               </div>
 
               <div className="form__row form__row--3">
-                <button type="submit" className="form__btn">
-                  Register
+                <button type="submit" disabled={loading} className="form__btn">
+                  {loading ? "Registering..." : "Register"}
                 </button>
               </div>
             </form>

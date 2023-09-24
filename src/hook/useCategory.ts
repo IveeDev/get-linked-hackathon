@@ -10,7 +10,6 @@ const useCategories = () =>
         const response = await newRequest.get("/hackathon/categories-list");
 
         // Assuming your API returns data in response.data
-        console.log(response);
         return response.data;
       } catch (error) {
         throw error; // Rethrow the error to be handled by react-query

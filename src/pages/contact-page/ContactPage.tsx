@@ -1,6 +1,6 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
-import { Schema, number, set, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import instagram from "../../assets/socials/mdi_instagram.svg";
 
@@ -10,10 +10,7 @@ import linkedin from "../../assets/socials/ri_linkedin-fill.svg";
 import flareTop from "../../assets/images/flare-top.svg";
 import flareBottom from "../../assets/images/flare-bottom.svg";
 import satagra from "../../assets/images/sata-gra.svg";
-import purplestar from "../../assets/images/intro-star.svg";
-import whitestar from "../../assets/images/white-star.svg";
-import greystar from "../../assets/images/grey-star.svg";
-import Button from "../../components/button/Button";
+
 import "./ContactPage.scss";
 import newRequest from "../../services/auth-request";
 import MessageDisplay from "../../components/message-diplay/MessageDisplay";
@@ -179,5 +176,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-
-// box-shadow: 0px 4px 4px 0px #00000040;

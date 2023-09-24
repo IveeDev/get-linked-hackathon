@@ -1,3 +1,10 @@
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-phone: 48em;
+$bp-smallest: 31.25em; // 500px
+
 .register {
   background-color: #1c152e;
   display: flex;
@@ -9,8 +16,13 @@
     display: flex;
     align-items: start;
     margin-top: 5rem;
-    // gap: 1rem;
     padding: 0 5rem;
+
+    @media only screen and (max-width: $bp-phone) {
+      flex-direction: column;
+      justify-content: center;
+      width: 100rem;
+    }
 
     &__left {
       position: relative;
@@ -22,10 +34,21 @@
         width: 60rem;
         top: -10rem;
         left: 5rem;
+
+        @media only screen and (max-width: $bp-phone) {
+          margin: 0 auto;
+          left: -10rem;
+          width: 40rem;
+        }
       }
       .register-icon {
         position: relative;
         margin-left: 10rem;
+
+        @media only screen and (max-width: $bp-phone) {
+          margin-left: 5rem;
+          width: 100%;
+        }
       }
     }
 
@@ -35,7 +58,12 @@
       flex-basis: 50%;
       margin-right: 25rem;
       margin-top: 5rem;
-      //   overflow: hidden;
+
+      @media only screen and (max-width: $bp-phone) {
+        margin: 0 auto;
+        flex-basis: 100%;
+      }
+
       .register__form-container {
         position: relative;
         z-index: 1000;
@@ -48,6 +76,11 @@
         border-radius: 10px;
         border-radius: 5px;
         text-align: left;
+
+        @media only screen and (max-width: $bp-phone) {
+          width: 100%;
+          padding: 2rem 2rem;
+        }
 
         .heading-primary {
           color: var(--purple-light);
@@ -94,6 +127,10 @@
               border-radius: 0.6rem;
               font-size: 1.6rem;
               background-color: #1c152e;
+
+              @media only screen and (max-width: $bp-phone) {
+                width: 100%;
+              }
             }
 
             label {

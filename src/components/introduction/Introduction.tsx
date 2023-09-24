@@ -1,11 +1,9 @@
-import React from "react";
 import "./Introduction.scss";
 import idea from "../../assets/images/idea.svg";
 import ideaMobile from "../../assets/images/big-idea-mobile.svg";
 import ideaStar from "../../assets/images/idea-star.svg";
 import introStar from "../../assets/images/intro-star.svg";
 import arrow from "../../assets/images/arrow.svg";
-import purpleflare from "../../assets/images/Purple-Lens-Flare-1.svg";
 
 const Introduction = () => {
   return (
